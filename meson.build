@@ -2,7 +2,7 @@ project('libratbag', 'c',
 	version : '0.14',
 	license : 'MIT/Expat',
 	default_options : [ 'c_std=gnu99', 'warning_level=2' ],
-	meson_version : '>= 0.40.0')
+	meson_version : '>= 0.50.0')
 
 # The DBus API version. Increase this every time the DBus API changes.
 # No backwards/forwards guarantee, clients are expected to understand
@@ -171,8 +171,9 @@ src_libratbag = [
 	'src/driver-hidpp10.c',
 	'src/driver-logitech-g300.c',
 	'src/driver-logitech-g600.c',
-	'src/driver-roccat.c',
-	'src/driver-roccat-kone-pure.c',
+#	'src/driver-roccat.c',
+#	'src/driver-roccat-kone-pure.c',
+	'src/driver-roccat-kone-aimo.c',
 	'src/driver-gskill.c',
 	'src/driver-steelseries.c',
 	'src/driver-test.c',
@@ -337,6 +338,7 @@ data_files = files(
 	'data/devices/logitech-MX-Anywhere2.device',
 	'data/devices/logitech-MX-Anywhere2S.device',
 	'data/devices/logitech-MX-Vertical.device',
+	'data/devices/roccat-kone-aimo-remastered.device',
 	'data/devices/roccat-kone-pure.device',
 	'data/devices/roccat-kone-xtd.device',
 	'data/devices/steelseries-kinzu-v2.device',
