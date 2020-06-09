@@ -1,4 +1,4 @@
 [Device]
 Name=Roccat Kone AIMO Remastered
 DeviceMatch=usb:1e7d:2e2c
-Driver=roccat
+Driver=roccat-kone-aimo

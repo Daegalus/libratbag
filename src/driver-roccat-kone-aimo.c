@@ -179,7 +179,6 @@ struct roccat_button_mapping {
 };
 
 static struct roccat_button_mapping roccat_button_mapping[] = {
-/* FIXME:	{ 0, Disabled }, */
 	{ 0, BUTTON_ACTION_NONE},
 	{ 1, BUTTON_ACTION_BUTTON(1) },
 	{ 2, BUTTON_ACTION_BUTTON(2) },
@@ -866,7 +865,7 @@ roccat_remove(struct ratbag_device *device)
 
 struct ratbag_driver roccat_driver = {
 	.name = "Roccat Kone AIMO",
-	.id = "roccat",
+	.id = "roccat-kone-aimo",
 	.probe = roccat_probe,
 	.remove = roccat_remove,
 	.write_profile = roccat_write_profile,
