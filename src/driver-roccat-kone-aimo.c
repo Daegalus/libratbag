@@ -48,7 +48,7 @@
 #define ROCCAT_REPORT_ID_KEY_MAPPING		7
 #define ROCCAT_REPORT_ID_MACRO			8
 
-#define ROCCAT_REPORT_SIZE_PROFILE		77
+#define ROCCAT_REPORT_SIZE_PROFILE		75
 #define ROCCAT_REPORT_SIZE_SETTINGS		126
 #define ROCCAT_REPORT_SIZE_MACRO		2082
 
@@ -786,10 +786,11 @@ roccat_read_profile(struct ratbag_profile *profile)
     ratbag_profile_for_each_button(profile, button)
 		roccat_read_button(button);
 
-	if (!roccat_crc_is_valid(device, buf, ROCCAT_REPORT_SIZE_PROFILE))
+    // No CRC check for Roccat Kone AIMO, but leaving for reference if needed for other models.
+	/*if (!roccat_crc_is_valid(device, buf, ROCCAT_REPORT_SIZE_PROFILE))
 		log_error(device->ratbag,
 			  "Error while reading profile %d, continuing...\n",
-			  profile->index);
+			  profile->index);*/
 
 	log_raw(device->ratbag, "profile: %d %s:%d\n",
 		buf[2],
@@ -863,7 +864,7 @@ roccat_remove(struct ratbag_device *device)
 	free(ratbag_get_drv_data(device));
 }
 
-struct ratbag_driver roccat_driver = {
+struct ratbag_driver roccat_kone_aimo_driver = {
 	.name = "Roccat Kone AIMO",
 	.id = "roccat-kone-aimo",
 	.probe = roccat_probe,
